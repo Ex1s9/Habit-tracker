@@ -1,0 +1,12 @@
+@use '@/styles/theme.scss' as *;
+@use '@/styles/screen.scss' as *;
+
+.app {
+    font-family: 'Nunito Sans', serif;
+    min-height: 100vh;
+    padding-bottom: 60px;
+
+    @include theme {
+        background-color: $background-color;
+    }
+}

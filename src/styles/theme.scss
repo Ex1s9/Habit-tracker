@@ -1,0 +1,18 @@
+$background-color: null;
+$text-color: null;
+
+@mixin theme {
+    @media (prefers-color-scheme: light) {
+        $background-color: #fcfcfc !global;
+        $text-color: #000 !global;
+
+        @content;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        $background-color: rgba(46, 46, 46, 1) !global;
+        $text-color: #fff !global;
+
+        @content;
+    }
+}
