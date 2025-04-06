@@ -1,9 +1,10 @@
+import Sidebar from '@/features/sidebar/Sidebar.tsx';
 import s from './main.module.scss';
 
 function App() {
     return (
         <div className={s.app}>
-            <h1>React TypeScript Webpack Starter Template</h1>
+            <Sidebar />
         </div>
     );
 }
