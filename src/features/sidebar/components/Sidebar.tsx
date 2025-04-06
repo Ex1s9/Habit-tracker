@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 import { FiBarChart, FiCalendar, FiHome, FiLogIn, FiSettings, FiUserPlus } from 'react-icons/fi';
+import { uiStore } from '../store/uiStore';
 import s from './Sidebar.module.scss';
 
 interface NavItem {
@@ -8,9 +9,7 @@ interface NavItem {
     href: string;
 }
 
-const Sidebar = () => {
-    const [active, setActive] = useState<string>('dashboard');
-
+const Sidebar = observer(() => {
     const navItems: NavItem[] = [
         { icon: FiHome, label: 'Dashboard', href: 'dashboard' },
         { icon: FiCalendar, label: 'Habits', href: 'habits' },
@@ -27,8 +26,8 @@ const Sidebar = () => {
                 {navItems.map((item) => (
                     <a
                         key={item.label}
-                        className={`${s.navItem} ${active === item.label ? s.active : ''}`}
-                        onClick={() => setActive(item.label)}
+                        className={`${s.navItem} ${uiStore.activeMenu === item.href ? s.active : ''}`}
+                        onClick={() => uiStore.setActiveMenu(item.href)}
                     >
                         <item.icon className={s.icon} />
                         <span>{item.label}</span>
@@ -46,7 +45,7 @@ const Sidebar = () => {
                 </a>
             </div>
         </div>
-    )
-}
+    );
+});
 
-export default Sidebar
+export default Sidebar;

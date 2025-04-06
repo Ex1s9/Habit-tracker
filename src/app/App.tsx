@@ -1,4 +1,4 @@
-import Sidebar from '@/features/sidebar/Sidebar.tsx';
+import Sidebar from '@/features/sidebar/components/Sidebar';
 import s from './main.module.scss';
 
 function App() {
