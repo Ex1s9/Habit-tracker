@@ -8,5 +8,6 @@
 
     @include theme {
         background-color: $background-color;
+        color: $text-color;
     }
 }
